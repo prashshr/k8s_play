@@ -5,6 +5,9 @@ metadata:
   labels:
     app: testsvc
 spec:
+  ports:
+  - port: 80
+    name: web
   type: NodePort
   selector:
     app: testsvc
@@ -31,4 +34,4 @@ spec:
           - "sleep"
           - "3600"
         imagePullPolicy: IfNotPresent
-restartPolicy: Always
+      restartPolicy: Always
