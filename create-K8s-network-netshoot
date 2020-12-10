@@ -1,0 +1,9 @@
+
+
+docker stack deploy --compose-file no-encryption.yml netshoot-no-encryption 
+docker stack deploy --compose-file encryption.yml netshoot-encryption
+
+docker service logs -t netshoot-encryption_netshoot-client > netshoot-encryption_netshoot-client.txt
+docker service logs -t netshoot-encryption_netshoot-server > netshoot-encryption_netshoot-server.txt
+docker service logs -t netshoot-no-encryption_netshoot-client > netshoot-no-encryption_netshoot-client.txt
+docker service logs -t netshoot-no-encryption_netshoot-server > netshoot-no-encryption_netshoot-server.txt
