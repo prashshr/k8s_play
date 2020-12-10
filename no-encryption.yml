@@ -1,0 +1,46 @@
+version: "3.3"
+
+services:
+
+  netshoot-server:
+
+    image: cdunkelb/netshoot-server:2
+    entrypoint: nc -lkv -p 4444
+
+    deploy:
+
+      mode: global
+
+      placement:
+
+        constraints:
+
+          - "node.platform.os==linux"
+
+    networks:
+
+      - test-net
+
+  netshoot-client:
+
+    image: cdunkelb/netshoot-client:2
+
+    deploy:
+
+      mode: global
+
+      placement:
+
+        constraints:
+
+          - "node.platform.os==linux"
+
+    networks:
+
+      - test-net
+
+
+
+networks:
+
+  test-net:
